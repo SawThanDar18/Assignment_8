@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Assignment_8</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_favourite">Favourite</string>
+
+    <!--activity_login-->
+    <string name="login_lbl1">LOGIN</string>
+    <string name="login_lbl2">Sign in your account to continue</string>
+    <string name="login_lbl3">EMAIL ID</string>
+    <string name="login_lbl4">Name@gmail.com</string>
+    <string name="login_lbl5">PASSWORD</string>
+    <string name="login_lbl6">Forgot Password?</string>
+    <string name="login_lbl7">LOGIN</string>
+
+    <!--activity_home-->
+    <string name="home_lbl1">Flowers</string>
+    <string name="home_lbl2">School</string>
+    <string name="home_lbl3">Search</string>
+
+    <!--home_item_view-->
+    <string name="item_lbl1">Monstera</string>
+    <string name="item_lbl2">by Kate B.</string>
+
+    <!--activity_detail-->
+    <string name="detail_lbl1">Monstera</string>
+    <string name="detail_lbl2">by Kate B.</string>
+    <string name="detail_lbl3">Monstera is a genus of about 50 species of flowering plants in the arum family. Araceae, native to tropical regions.</string>
+    <string name="detail_lbl4">Tips</string>
+    <string name="detail_lbl5">Temperature</string>
+    <string name="detail_lbl6">18-25 C</string>
+    <string name="detail_lbl7">Light</string>
+    <string name="detail_lbl8">Diffused</string>
+    <string name="detail_lbl9">Placement</string>
+    <string name="detail_lbl10">Indoor</string>
+
+    <string name="snackbar_msg">Error</string>
+
+</resources>
