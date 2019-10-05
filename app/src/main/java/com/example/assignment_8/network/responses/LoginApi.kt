@@ -9,5 +9,5 @@ interface LoginApi {
 
     @POST(GET_LOGIN)
     fun getAuth(@Query("email") email: String,
-                @Query("password") password: String): Call<GetResponse>
+                @Query("password") password: String): Call<GetPlantResponse>
 }

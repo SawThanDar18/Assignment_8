@@ -4,5 +4,5 @@ interface ItemClicked {
 
     fun onClicked(plant_id: String)
 
-    fun addFavourite(image: String)
+    fun addFavourite(id: String, toggleStatus: Boolean)
 }

@@ -2,9 +2,9 @@ package com.example.assignment_8.mvp.views
 
 import com.example.assignment_8.data.vos.PlantVO
 
-interface PlantListView: BaseView {
+interface FavouritePlantListView: BaseView {
 
-    fun displayPlantList(plantList: List<PlantVO>)
+    fun displayFavouritePlantList(plantVO: List<PlantVO>)
     fun displayErrorMessage(message: String)
     fun navigateToPlantDetail(plant_id: String)
 }

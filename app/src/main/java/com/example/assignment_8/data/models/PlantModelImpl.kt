@@ -1,5 +1,6 @@
 package com.example.assignment_8.data.models
 
+import com.example.assignment_8.data.vos.FavouritePlantVO
 import com.example.assignment_8.data.vos.PlantVO
 import java.util.ArrayList
 
@@ -34,5 +35,26 @@ object PlantModelImpl: BaseModel(), PlantModel {
             }
         }
         return search_plant
+    }
+
+    override fun getFavouritePlant(onSuccess: (List<PlantVO>) -> Unit, onFailure: (String) -> Unit) {
+        val plantDataFromDB = plantDB.favouriteDao().getFavouritePlants()
+        if (plantDataFromDB.isNotEmpty()){
+            onSuccess(plantDataFromDB)
+        }else{
+            onFailure
+        }
+    }
+
+    override fun addFavouritePlant(favouritePlantVO: FavouritePlantVO) {
+        plantDB.favouriteDao().insertFavourite(favouritePlantVO)
+    }
+
+    override fun getFavouritePlantById(plant_id: String): FavouritePlantVO {
+        return plantDB.favouriteDao().getFavouritePlantById(plant_id)
+    }
+
+    override fun deleteFavouritePlant(favouritePlantVO: FavouritePlantVO) {
+        plantDB.favouriteDao().deleteFavouritePlant(favouritePlantVO)
     }
 }

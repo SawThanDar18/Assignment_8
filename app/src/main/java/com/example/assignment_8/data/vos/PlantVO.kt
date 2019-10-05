@@ -12,7 +12,7 @@ data class PlantVO (
 
     @PrimaryKey
     @SerializedName("plant_id")
-    @ColumnInfo(name = "id")
+    @ColumnInfo(name = "plant_id")
     var plant_id: String,
 
     @SerializedName("plant_name")

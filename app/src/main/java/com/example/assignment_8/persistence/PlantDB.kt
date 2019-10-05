@@ -5,20 +5,23 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.assignment_8.data.vos.FavouriteVO
+import com.example.assignment_8.data.vos.FavouritePlantVO
+import com.example.assignment_8.data.vos.LoginVO
 import com.example.assignment_8.data.vos.PlantVO
-import com.example.assignment_8.persistence.daos.FavouriteDao
+import com.example.assignment_8.persistence.daos.FavouritePlantDao
+import com.example.assignment_8.persistence.daos.LoginDao
 import com.example.assignment_8.persistence.daos.PlantDao
 import com.example.assignment_8.persistence.typeconverters.TipsTypeConverter
 import com.example.assignment_8.persistence.typeconverters.UploadedUserTypeConverter
 import com.example.assignment_8.utils.PLANT_DB
 
-@Database(entities = arrayOf(PlantVO::class, FavouriteVO::class), version = 7, exportSchema = false)
+@Database(entities = arrayOf(PlantVO::class, FavouritePlantVO::class, LoginVO::class), version = 12, exportSchema = false)
 @TypeConverters(TipsTypeConverter::class, UploadedUserTypeConverter::class)
 abstract class PlantDB: RoomDatabase(){
 
     abstract fun plantDao(): PlantDao
-    abstract fun favouriteDao(): FavouriteDao
+    abstract fun favouriteDao(): FavouritePlantDao
+    abstract fun loginDao(): LoginDao
 
     companion object{
         var INSTANCE: PlantDB? = null
@@ -33,9 +36,5 @@ abstract class PlantDB: RoomDatabase(){
 
             return INSTANCE!!
         }
-    }
-
-    fun areDataExistInDB(): Boolean {
-        return plantDao().getPlants().isNotEmpty()
     }
 }

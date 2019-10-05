@@ -9,5 +9,5 @@ interface DataAgent {
                   onFailure: (String) -> Unit)
 
     fun getAuth(onSuccess: (List<LoginVO>) -> Unit,
-                  onFailure: (String) -> Unit)
+                onFailure: (String) -> Unit)
 }

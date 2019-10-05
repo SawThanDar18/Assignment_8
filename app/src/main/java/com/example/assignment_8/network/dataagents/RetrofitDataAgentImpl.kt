@@ -2,7 +2,8 @@ package com.example.assignment_8.network.dataagents
 
 import com.example.assignment_8.data.vos.LoginVO
 import com.example.assignment_8.data.vos.PlantVO
-import com.example.assignment_8.network.responses.GetResponse
+import com.example.assignment_8.network.responses.GetLoginResponse
+import com.example.assignment_8.network.responses.GetPlantResponse
 import com.example.assignment_8.network.responses.LoginApi
 import com.example.assignment_8.network.responses.PlantApi
 import com.example.assignment_8.utils.BASE_URL
@@ -38,13 +39,13 @@ object RetrofitDataAgentImpl: DataAgent {
     }
 
     override fun getPlants(onSuccess: (List<PlantVO>) -> Unit, onFailure: (String) -> Unit) {
-        plantApi.getAllPlants().enqueue(object: Callback<GetResponse>{
-            override fun onFailure(call: Call<GetResponse>, t: Throwable) {
+        plantApi.getAllPlants().enqueue(object: Callback<GetPlantResponse>{
+            override fun onFailure(call: Call<GetPlantResponse>, t: Throwable) {
                 onFailure(t.localizedMessage)
             }
 
-            override fun onResponse(call: Call<GetResponse>, response: Response<GetResponse>) {
-                val response = response.body()
+            override fun onResponse(call: Call<GetPlantResponse>, plantResponse: Response<GetPlantResponse>) {
+                val response = plantResponse.body()
                 if (response!= null) {
                     if (response.data != null) {
                         onSuccess(response.data)
@@ -60,13 +61,13 @@ object RetrofitDataAgentImpl: DataAgent {
     }
 
     override fun getAuth(onSuccess: (List<LoginVO>) -> Unit, onFailure: (String) -> Unit) {
-        loginApi.getAuth("john@gmail.com", "123456").enqueue(object: Callback<GetResponse>{
-            override fun onFailure(call: Call<GetResponse>, t: Throwable) {
+        /*loginApi.getAuth("john@gmail.com", "123456").enqueue(object: Callback<GetLoginResponse>{
+            override fun onFailure(call: Call<GetLoginResponse>, t: Throwable) {
                 onFailure(t.localizedMessage)
             }
 
-            override fun onResponse(call: Call<GetResponse>, response: Response<GetResponse>) {
-                val response = response.body()
+            override fun onResponse(call: Call<GetLoginResponse>, plantResponse: Response<GetLoginResponse>) {
+                val response = plantResponse.body()
                 if (response!= null) {
                     if (response.loginData != null) {
                         onSuccess(response.loginData)
@@ -78,6 +79,6 @@ object RetrofitDataAgentImpl: DataAgent {
                 }
             }
 
-        })
+        })*/
     }
 }

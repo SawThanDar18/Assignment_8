@@ -1,5 +1,6 @@
 package com.example.assignment_8.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -20,10 +21,6 @@ import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class HomeActivity: BaseActivity(), PlantListView {
-
-    override fun addFavourite(plant_id: String) {
-
-    }
 
     override fun displayPlantList(plantList: List<PlantVO>) {
         plantItemAdapter.setNewData(plantList as MutableList<PlantVO>)
@@ -84,6 +81,10 @@ class HomeActivity: BaseActivity(), PlantListView {
                 searchByKeyword(s.toString())
             }
         })
+
+        navigation.setOnClickListener {
+            startActivity(Intent(this, FavouritePlantActivity::class.java))
+        }
 
         plantListPresenter.onCreate()
     }

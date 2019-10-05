@@ -16,7 +16,7 @@ abstract class PlantDao {
     @Query("SELECT * FROM plant")
     abstract fun getPlants(): List<PlantVO>
 
-    @Query("SELECT * FROM plant WHERE id=:id")
+    @Query("SELECT * FROM plant WHERE plant_id=:id")
     abstract fun getPlantsById(id: String): PlantVO
 
 }

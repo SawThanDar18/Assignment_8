@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import com.example.assignment_8.R
 import com.example.assignment_8.data.vos.PlantVO
 import com.example.assignment_8.delegates.ItemClicked
-import com.example.assignment_8.delegates.RecentItemClicked
 import com.example.assignment_8.viewHolders.PlantItemViewHolder
 
 class PlantItemAdapter(private val delegate: ItemClicked): BaseAdapter<PlantItemViewHolder, PlantVO>() {
