@@ -1,7 +1,9 @@
 package com.example.assignment_8.network.dataagents
 
+import com.example.assignment_8.data.vos.LoginVO
 import com.example.assignment_8.data.vos.PlantVO
 import com.example.assignment_8.network.responses.GetResponse
+import com.example.assignment_8.network.responses.LoginApi
 import com.example.assignment_8.network.responses.PlantApi
 import com.example.assignment_8.utils.BASE_URL
 import com.example.assignment_8.utils.EM_NULL_RESPONSE
@@ -16,6 +18,7 @@ import java.util.concurrent.TimeUnit
 object RetrofitDataAgentImpl: DataAgent {
 
     private val plantApi: PlantApi
+    private val loginApi: LoginApi
 
     init {
         var okHttpClient = OkHttpClient.Builder()
@@ -31,6 +34,7 @@ object RetrofitDataAgentImpl: DataAgent {
             .build()
 
         plantApi = retrofit.create(PlantApi::class.java)
+        loginApi = retrofit.create(LoginApi::class.java)
     }
 
     override fun getPlants(onSuccess: (List<PlantVO>) -> Unit, onFailure: (String) -> Unit) {
@@ -44,6 +48,28 @@ object RetrofitDataAgentImpl: DataAgent {
                 if (response!= null) {
                     if (response.data != null) {
                         onSuccess(response.data)
+                    } else {
+                        onFailure(response.message)
+                    }
+                }else{
+                    onFailure(EM_NULL_RESPONSE)
+                }
+            }
+
+        })
+    }
+
+    override fun getAuth(onSuccess: (List<LoginVO>) -> Unit, onFailure: (String) -> Unit) {
+        loginApi.getAuth("john@gmail.com", "123456").enqueue(object: Callback<GetResponse>{
+            override fun onFailure(call: Call<GetResponse>, t: Throwable) {
+                onFailure(t.localizedMessage)
+            }
+
+            override fun onResponse(call: Call<GetResponse>, response: Response<GetResponse>) {
+                val response = response.body()
+                if (response!= null) {
+                    if (response.loginData != null) {
+                        onSuccess(response.loginData)
                     } else {
                         onFailure(response.message)
                     }
