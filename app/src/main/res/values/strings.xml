@@ -18,7 +18,7 @@
     <string name="login_lbl6">Forgot Password?</string>
     <string name="login_lbl7">LOGIN</string>
 
-    <!--activity_home-->
+    <!--activity_plant_list-->
     <string name="home_lbl1">Flowers</string>
     <string name="home_lbl2">School</string>
     <string name="home_lbl3">Search</string>

@@ -14,7 +14,4 @@ abstract class LoginDao {
 
     @Query("SELECT * FROM login")
     abstract fun getLoginUser(): List<LoginVO>
-
-    @Query("SELECT * FROM login WHERE user_id=:id")
-    abstract fun getLoginUserById(id: String): LoginVO
 }

@@ -17,7 +17,7 @@ class LoginActivity: AppCompatActivity() {
         userName_et.text = "john@gmail.com"
 
         login_btn.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
+            startActivity(Intent(this, PlantListActivity::class.java))
         }
     }
 

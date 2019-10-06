@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.HomeActivity"
+        <activity android:name=".activities.PlantListActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name=".activities.DetailActivity"
@@ -34,6 +34,10 @@
 
         <activity android:name=".activities.FavouritePlantActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".activities.ProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>

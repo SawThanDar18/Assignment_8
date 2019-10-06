@@ -5,22 +5,18 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.KeyEvent
-import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assignment_8.R
 import com.example.assignment_8.adapters.PlantItemAdapter
-import com.example.assignment_8.data.models.PlantModel
 import com.example.assignment_8.data.vos.PlantVO
 import com.example.assignment_8.mvp.presenters.PlantListPresenter
 import com.example.assignment_8.mvp.views.PlantListView
-import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_plant_list.*
 
-class HomeActivity: BaseActivity(), PlantListView {
+class PlantListActivity: BaseActivity(), PlantListView {
 
     override fun displayPlantList(plantList: List<PlantVO>) {
         plantItemAdapter.setNewData(plantList as MutableList<PlantVO>)
@@ -40,7 +36,7 @@ class HomeActivity: BaseActivity(), PlantListView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_plant_list)
 
         plantListPresenter = PlantListPresenter()
         plantListPresenter.initPresenter(this)
@@ -49,8 +45,12 @@ class HomeActivity: BaseActivity(), PlantListView {
 
         with(recyclerView){
             setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this@HomeActivity)
+            layoutManager = LinearLayoutManager(this@PlantListActivity)
             adapter = plantItemAdapter
+        }
+
+        profile_iv.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
 
         search_et.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event ->
