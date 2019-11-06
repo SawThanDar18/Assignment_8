@@ -1,5 +1,7 @@
 package com.example.assignment_8.mvp.presenters
 
+import androidx.lifecycle.Observer
+import com.example.assignment_8.activities.BaseActivity
 import com.example.assignment_8.data.models.PlantModelImpl
 import com.example.assignment_8.data.vos.FavouritePlantVO
 import com.example.assignment_8.delegates.ItemClicked
@@ -22,14 +24,11 @@ class PlantListPresenter: BasePresenter<PlantListView>(), ItemClicked {
         mView.navigateToPlantDetail(plant_id)
     }
 
-    override fun onCreate() {
-
+    fun onUIReady(activity: BaseActivity) {
         val model = PlantModelImpl
-        model.getPlants(onSuccess = {
-            mView.displayPlantList(it)
-        },
-            onFailure = {
-                mView.displayErrorMessage(EM_NULL_RESPONSE)
+        model.getPlants{ mView.displayErrorMessage(it)}
+            .observe(activity, Observer {
+                mView.displayPlantList(it)
             })
 
     }

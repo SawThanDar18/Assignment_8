@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.lifecycle.LiveData
 import com.bumptech.glide.Glide
 import com.example.assignment_8.R
 import com.example.assignment_8.adapters.DetailImageAdapter
@@ -31,38 +32,11 @@ class DetailActivity: BaseActivity(), PlantDetailView {
         plantDetailPresenter.initPresenter(this)
 
         val plant_id = intent.getStringExtra(EXTRA_EVENT_ID)
-        plantDetailPresenter.onUIReady(plant_id)
+        plantDetailPresenter.onUIReady(this, plant_id)
 
         back_iv.setOnClickListener {
             finish()
         }
-
-        plantDetailPresenter.onCreate()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        plantDetailPresenter.onStart()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        plantDetailPresenter.onPause()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        plantDetailPresenter.onResume()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        plantDetailPresenter.onStop()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        plantDetailPresenter.onDestroy()
     }
 
     companion object{

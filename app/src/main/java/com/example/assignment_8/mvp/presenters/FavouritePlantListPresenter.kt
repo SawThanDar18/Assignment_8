@@ -1,5 +1,6 @@
 package com.example.assignment_8.mvp.presenters
 
+import com.example.assignment_8.activities.BaseActivity
 import com.example.assignment_8.data.models.PlantModelImpl
 import com.example.assignment_8.delegates.ItemClicked
 import com.example.assignment_8.mvp.views.FavouritePlantListView
@@ -14,8 +15,7 @@ class FavouritePlantListPresenter: BasePresenter<FavouritePlantListView>(), Item
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun onCreate() {
-        super.onCreate()
+   fun onUIReady(activity: BaseActivity) {
         val model = PlantModelImpl
         model.getFavouritePlant(onSuccess = {
             mView.displayFavouritePlantList(it)

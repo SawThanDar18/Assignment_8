@@ -43,11 +43,9 @@ class PlantListActivity: BaseActivity(), PlantListView {
 
         plantItemAdapter = PlantItemAdapter(plantListPresenter)
 
-        with(recyclerView){
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this@PlantListActivity)
-            adapter = plantItemAdapter
-        }
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(this@PlantListActivity)
+        recyclerView.adapter = plantItemAdapter
 
         profile_iv.setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
@@ -63,7 +61,7 @@ class PlantListActivity: BaseActivity(), PlantListView {
 
         search_et.setOnKeyListener { v, keyCode, event ->
             if (keyCode == KeyEvent.KEYCODE_DEL) {
-               plantListPresenter.onCreate()
+               plantListPresenter.onUIReady(this)
             }
             false
         }
@@ -86,36 +84,11 @@ class PlantListActivity: BaseActivity(), PlantListView {
             startActivity(Intent(this, FavouritePlantActivity::class.java))
         }
 
-        plantListPresenter.onCreate()
+        plantListPresenter.onUIReady(this)
     }
 
     fun searchByKeyword(keyword: String){
         plantItemAdapter.setNewData(plantModel.getPlantsByName(keyword) as MutableList<PlantVO>)
-        recyclerView.setAdapter(plantItemAdapter)
-    }
-
-    override fun onStart() {
-        super.onStart()
-        plantListPresenter.onStart()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        plantListPresenter.onPause()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        plantListPresenter.onResume()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        plantListPresenter.onStop()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        plantListPresenter.onDestroy()
+        recyclerView.adapter = plantItemAdapter
     }
 }

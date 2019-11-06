@@ -10,16 +10,4 @@ abstract class BasePresenter<T: BaseView>: ViewModel() {
     open fun initPresenter(view: T){
         this.mView = view
     }
-
-    open fun onCreate(){}
-
-    open fun onStart(){}
-
-    open fun onPause(){}
-
-    open fun onResume(){}
-
-    open fun onStop(){}
-
-    open fun onDestroy(){}
 }

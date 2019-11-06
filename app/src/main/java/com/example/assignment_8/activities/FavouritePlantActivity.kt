@@ -42,31 +42,6 @@ class FavouritePlantActivity : BaseActivity(), FavouritePlantListView {
             adapter = favouriteItemAdapter
         }
 
-        favouritePlantListPresenter.onCreate()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        favouritePlantListPresenter.onStart()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        favouritePlantListPresenter.onPause()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        favouritePlantListPresenter.onResume()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        favouritePlantListPresenter.onStop()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        favouritePlantListPresenter.onDestroy()
+        favouritePlantListPresenter.onUIReady(this)
     }
 }
