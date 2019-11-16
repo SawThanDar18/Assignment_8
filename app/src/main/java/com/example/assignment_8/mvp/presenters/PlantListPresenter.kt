@@ -1,5 +1,6 @@
 package com.example.assignment_8.mvp.presenters
 
+import android.widget.ImageView
 import androidx.lifecycle.Observer
 import com.example.assignment_8.activities.BaseActivity
 import com.example.assignment_8.data.models.PlantModelImpl
@@ -20,8 +21,8 @@ class PlantListPresenter: BasePresenter<PlantListView>(), ItemClicked {
         }
     }
 
-    override fun onClicked(plant_id: String) {
-        mView.navigateToPlantDetail(plant_id)
+    override fun onClicked(plant_id: String, plantImageView: ImageView) {
+        mView.navigateToPlantDetail(plant_id, plantImageView)
     }
 
     fun onUIReady(activity: BaseActivity) {

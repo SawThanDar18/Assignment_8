@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/plant_iv_itemView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/monstera_2"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+<!--
 <com.example.assignment_8.persistence.DetailImageViewItem
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -11,4 +25,4 @@
         android:scaleType="centerCrop"
         android:src="@drawable/monstera_2"/>
 
-</com.example.assignment_8.persistence.DetailImageViewItem>
+</com.example.assignment_8.persistence.DetailImageViewItem>-->
